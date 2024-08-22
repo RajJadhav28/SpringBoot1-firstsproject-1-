@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<th:block th:include="layout.html :: headercode"></th:block>
+
+	<title></title>
+</head>
+<body>
+	
+	<header th:insert="layout.html :: header">
+		
+	</header>
+	
+
+	<h1>Welcome to list page</h1>
+	<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Password</th>
+      <th scope="col" colspan="2">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr th:each="emp : ${employees}">
+      <th scope="row" th:text="${emp.getId()}"></th>
+      <td th:text="${emp.getName()}"></td>
+      <td th:text="${emp.getEmail()}"></td>
+      <td th:text="${emp.getPassword()}"></td>
+      <td><a th:href="@{/emp/edit/{id}(id=${emp.getId()})}">Edit</a></td>
+      <td><a th:href="@{/emp/delete(id=${emp.getId()})}">Delete</a></td>
+    </tr>
+  </tbody>
+</table>
+	
+<!--	<h1>Welcome to home page</h1>-->
+</body>
+</html>
